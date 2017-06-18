@@ -8,9 +8,9 @@ var fObj;
 
 function loadWeather() {
     var zip = document.getElementById('zip').value;
-    if (zip === '') {zip = "05446"}
-    var conditionPath = "http://api.wunderground.com/api/eda0dab838e29d68/conditions/q/"+zip+".json";
-    var forecastPath = "http://api.wunderground.com/api/eda0dab838e29d68/forecast/q/"+zip+".json";
+    if (zip === '') { zip = "05446"; }
+    var conditionPath = "http://api.wunderground.com/api/eda0dab838e29d68/conditions/q/" + zip + ".json";
+    var forecastPath = "http://api.wunderground.com/api/eda0dab838e29d68/forecast/q/" + zip + ".json";
     
     // GET THE CONDITIONS
 weatherConditions.open('GET', conditionPath, true);
@@ -25,8 +25,8 @@ weatherForecast.send();
 }
 
 
-weatherConditions.onload = function() {
-    if (weatherConditions.status === 200){
+weatherConditions.onload = function () {
+    if (weatherConditions.status === 200) {
         cObj = JSON.parse(weatherConditions.responseText); 
         console.log(cObj);
         document.getElementById('location').innerHTML = cObj.current_observation.display_location.full;
